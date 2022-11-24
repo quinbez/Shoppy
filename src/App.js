@@ -5,11 +5,12 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import {Navbar, Footer, Sidebar, ThemeSettings} from  './components';
 import {Ecommerce, Orders, Stacked, Calendar, Employees, Pyramid, Customer, Kanban, Area, Line, Bar, Pie, Financial, ColorMapping, ColorPicker, Editor} from './pages';
+import {UseStateContext} from './contexts/ContextProvider';
 import './App.css';
 
 const app = () => {
 
-  const activeMenu = true;
+  const {activeMenu} = UseStateContext();
   return (
     <div>
       <BrowserRouter>
@@ -31,17 +32,17 @@ const app = () => {
               </div>
             )}
             <div className= {
-              `dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md-ml-72' : 'flex-2'}`
+              `dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-2'}`
               }>
-                <div className='fixed md-static bg-main-bg dark:bg-main-dark-bg navbar'> {/*  w-full  */}
-                 <Navbar />  
-                </div>
+              <div className='fixed md-static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
+                <Navbar />  
+              </div>
             </div>
             <div>
               <Routes>
                 {/* Dashboard */}
-                <Route path ="/" element={<Ecommerce />}/>
-                <Route path ="/ecommerce" element={<Ecommerce />}/>
+                <Route path ="/" element={(<Ecommerce />)}/>
+                <Route path ="/ecommerce" element={(<Ecommerce />)}/>
                 {/* Pages */}
                 <Route path ="/orders" element={<Orders />}/>
                 <Route path ="/employees" element={<Employees />}/>
