@@ -37,7 +37,7 @@ const ThemeSettings = () => {
               <TooltipComponent key={index} content={item.name} position ="TopCenter">
                 <div className='relative mt-2 cursor-pointer flex gap-5 items-center'>
                   <button type="button" className="h-10 w-10 rounded-full curser-pointer" style={{backgroundColor:item.color}} onClick={()=>setColor(item.color)}>
-                    <BsCheck classsName={`ml-2 text-2xl text-white ${ item.color === currentColor ? 'block':'hidden'}`}/>
+                    <BsCheck className={`ml-2 text-2xl text-white ${ item.color === currentColor ? 'block':'hidden'}`} />
                   </button>
                 </div>
               </TooltipComponent>
