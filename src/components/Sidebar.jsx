@@ -8,7 +8,7 @@ import { RiLinksFill } from 'react-icons/ri';
 import {UseStateContext} from '../contexts/ContextProvider';
 
 const Sidebar = () => {
-  const {activeMenu, setActiveMenu, screenSize} = UseStateContext();
+  const {activeMenu, setActiveMenu, screenSize, currentColor} = UseStateContext();
   const handleCloseSidebar = ()=>{
     if(activeMenu && screenSize <= 900){
       setActiveMenu(false);
@@ -40,7 +40,11 @@ const Sidebar = () => {
                     to ={`/${links.name}`}
                     key = {links.name}
                     onClick ={handleCloseSidebar}
-                    className ={({isActive})=>
+                    style = {({isActive}) => ({
+                      backgroundColor: isActive ? currentColor : '' 
+                    })}
+                    
+                      className ={({isActive})=>
                     isActive ? activeLink: normalLink}
                     >
                       {links.icon}
